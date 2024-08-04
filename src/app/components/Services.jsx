@@ -1,5 +1,4 @@
 import React from 'react';
-import {services} from 
 const Services = () => {
     console.log(services)
     return (
