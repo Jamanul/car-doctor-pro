@@ -1,4 +1,6 @@
 "use client"
+import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const page = () => {
@@ -28,6 +30,7 @@ const page = () => {
         </div>
       </form>
     </div>
+    <p>Dont have an account? <Link href={'/signup'} className='text-primary'>Sign Up</Link></p>
             </div>
         </div>
     );
