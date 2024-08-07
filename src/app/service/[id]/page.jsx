@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const serviceDetails = async(id)=>{
@@ -10,7 +11,7 @@ const serviceDetails = async(id)=>{
 const page = async({params}) => {
     const singleData = await serviceDetails(params.id)
     //console.log(singleData)
-    const {img,facility,price}=singleData
+    const {img,facility,price,_id}=singleData
     return (
         <div>
            <div className='mx-28 '>
@@ -26,7 +27,7 @@ const page = async({params}) => {
            </div>
            <div className='border mx-28 border-primary rounded-2xl p-4'>
             price : {price} $
-            <button className='btn-primary btn-outline border ml-4 rounded-xl px-4 py2'>Checkout</button>
+            <Link href={`checkout/${_id}`}><button className='btn-primary btn-outline border ml-4 rounded-xl px-4 py2'>Checkout</button></Link>
            </div>
         </div>
     );
