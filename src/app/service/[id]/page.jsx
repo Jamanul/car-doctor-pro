@@ -27,7 +27,7 @@ const page = async({params}) => {
            </div>
            <div className='border mx-28 border-primary rounded-2xl p-4'>
             price : {price} $
-            <Link href={`checkout/${_id}`}><button className='btn-primary btn-outline border ml-4 rounded-xl px-4 py2'>Checkout</button></Link>
+            <Link href={`/checkout/${_id}`}><button className='btn-primary btn-outline border ml-4 rounded-xl px-4 py2'>Checkout</button></Link>
            </div>
         </div>
     );

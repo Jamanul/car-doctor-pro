@@ -7,7 +7,7 @@ import React from 'react';
 
 const Navbar = () => {
   const session = useSession()
-  console.log(session)
+  //console.log(session)
     const links =[
         {
             title:"home",
