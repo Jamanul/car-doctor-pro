@@ -1,4 +1,5 @@
 "use client";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -25,6 +26,9 @@ const page = () => {
     });
     //console.log(resp);
   };
+  const handleGoogle =async()=>{
+    const resp = await signIn('google')
+  }
   return (
     <div className="flex min-h-screen items-center justify-center gap-6">
       <Image
@@ -81,6 +85,7 @@ const page = () => {
               <button className="btn btn-primary">Login</button>
             </div>
           </form>
+          <p onClick={handleGoogle} className="w-full text-center py-2 bg-primary text-white">GOOGLE</p>
           <p>
             Already have an account?{" "}
             <Link href={"/signin"} className="text-primary">

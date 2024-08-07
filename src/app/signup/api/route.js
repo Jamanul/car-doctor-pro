@@ -2,7 +2,7 @@ import { connectDB } from "@/lib/connectDB"
 const bcrypt = require('bcrypt')
 export const POST = async(request)=>{
     const newUser = await request.json() 
-    console.log(newUser)
+    //console.log(newUser)
     try {
         const db = await connectDB()
         //console.log(db)
