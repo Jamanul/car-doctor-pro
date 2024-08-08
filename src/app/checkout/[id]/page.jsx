@@ -33,11 +33,23 @@ const page = ({ params }) => {
       price,
       phone,
       address,
-      checkoutData,
       serviceTitle: title,
       servicePrice: price
     };
     console.log(checkoutData)
+    try {
+        const res = await fetch('http://localhost:3001/checkout/api/checkout',{
+        method: "POST",
+        headers:{
+            "content-type":"application/json"
+        },
+        body: JSON.stringify(checkoutData)
+    })
+    console.log(res)
+    } catch (error) {
+        console.log(error)
+    }
+     
   };
 
   //console.log(singleData)
@@ -65,6 +77,7 @@ const page = ({ params }) => {
                 type="text"
                 placeholder="Your Name"
                 name="name"
+                defaultValue={session?.data?.user?.name}
                 className="input input-bordered"
                 required
               />
@@ -77,6 +90,7 @@ const page = ({ params }) => {
                 type="email"
                 placeholder="email"
                 name="email"
+                defaultValue={session?.data?.user?.email}
                 className="input input-bordered"
                 required
               />

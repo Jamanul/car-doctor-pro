@@ -5,7 +5,7 @@ import GoogleProvider from "next-auth/providers/google"
 import bcrypt from "bcrypt";
 
 const handler = NextAuth({
-    
+    secret: "hello",
     session:{
         strategy: "jwt",
         maxAge: 30*24*60*60
