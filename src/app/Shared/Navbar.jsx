@@ -28,6 +28,10 @@ const Navbar = () => {
         {
             title:"services",
             path:"/"
+        },
+        {
+          title:"My bookings",
+          path:"/my-bookings"
         }
     ]
     return (
