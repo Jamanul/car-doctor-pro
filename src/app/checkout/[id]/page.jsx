@@ -18,8 +18,30 @@ const page = ({ params }) => {
   useEffect(() => {
     getDetails();
   }, [params]);
+  const { img, title, price } = singleData;
+  const handleCheckOut = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const price = form.price.value;
+    const phone = form.phone.value;
+    const address = form.phone.value;
+    const checkoutData = {
+      name,
+      email,
+      price,
+      phone,
+      address,
+      checkoutData,
+      serviceTitle: title,
+      servicePrice: price
+    };
+    console.log(checkoutData)
+  };
+
   //console.log(singleData)
-  const {img,title}=singleData
+
   return (
     <div>
       <div className="mx-28 ">
@@ -32,27 +54,88 @@ const page = ({ params }) => {
         />
       </div>
       <h2 className="text-5xl mx-28">Details of {title}</h2>
-      <div>
-      <form className="card-body">
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Email</span>
-          </label>
-          <input type="email" placeholder="email" className="input input-bordered" required />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Password</span>
-          </label>
-          <input type="password" placeholder="password" className="input input-bordered" required />
-          <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-          </label>
-        </div>
-        <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
-        </div>
-      </form>
+      <div className="mx-28">
+        <form onSubmit={handleCheckOut} className="card-body">
+          <div className="flex gap-6">
+            <div className="form-control w-1/2">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Your Name"
+                name="name"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control w-1/2">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                type="email"
+                placeholder="email"
+                name="email"
+                className="input input-bordered"
+                required
+              />
+            </div>
+          </div>
+          <div className="flex gap-6">
+            <div className="form-control w-1/2">
+              <label className="label">
+                <span className="label-text">Date</span>
+              </label>
+              <input
+                type="date"
+                defaultValue={new Date().getDate()}
+                name="date"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control w-1/2">
+              <label className="label">
+                <span className="label-text">Price</span>
+              </label>
+              <input
+                type="text"
+                defaultValue={price}
+                name="price"
+                className="input input-bordered"
+                required
+              />
+            </div>
+          </div>
+          <div className="flex gap-6">
+            <div className="form-control w-1/2">
+              <label className="label">
+                <span className="label-text">Phone</span>
+              </label>
+              <input
+                type="text"
+                name="phone"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control w-1/2">
+              <label className="label">
+                <span className="label-text">Address</span>
+              </label>
+              <input
+                type="text"
+                name="address"
+                className="input input-bordered"
+                required
+              />
+            </div>
+          </div>
+          <div className="form-control mt-6">
+            <button className="btn btn-primary">Checkout</button>
+          </div>
+        </form>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import GoogleProvider from "next-auth/providers/google"
 import bcrypt from "bcrypt";
 
 const handler = NextAuth({
+    
     session:{
         strategy: "jwt",
         maxAge: 30*24*60*60
@@ -62,7 +63,8 @@ const handler = NextAuth({
                 }
             }
             else{
-                user
+                console.log(user)
+                return user
             }
           },
     },
