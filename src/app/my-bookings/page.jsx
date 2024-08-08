@@ -17,7 +17,34 @@ const page = () => {
     return (
         <div>
             <h2 className='text-6xl text-center'>My Bookings</h2>
-
+            <div className="overflow-x-auto">
+  <table className="table">
+    {/* head */}
+    <thead>
+      <tr>
+        <th></th>
+        <th>service name</th>
+        <th>service price</th>
+        <th>date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+     {
+        myBookings.length>0 && myBookings.map((booking,idx)=><tr key={booking._id} className="bg-base-200">
+        <th>{idx+1}</th>
+        <td>{booking.serviceTitle}</td>
+        <td>{booking.servicePrice}</td>
+        <td>{booking.date}</td>
+        <td>
+            <button className='btn mr-2 btn-outline btn-primary'>Edit </button>
+            <button className='btn btn-outline btn-primary'>Delete </button>
+        </td>
+      </tr>)
+     }
+    </tbody>
+  </table>
+</div>
         </div>
     );
 };
