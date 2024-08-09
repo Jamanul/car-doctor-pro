@@ -1,5 +1,6 @@
 "use client";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 const page = () => {
@@ -53,9 +54,9 @@ const page = () => {
                   <td>{booking.servicePrice}</td>
                   <td>{booking.date}</td>
                   <td>
-                    <button className="btn mr-2 btn-outline btn-primary">
+                  <Link href={`my-bookings/update/${booking._id}`}>  <button className="btn mr-2 btn-outline btn-primary">
                       Edit{" "}
-                    </button>
+                    </button></Link>
                     <button
                       onClick={() => {
                         handleDelete(booking._id);
