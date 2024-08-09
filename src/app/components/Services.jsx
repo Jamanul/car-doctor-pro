@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const servicesData = async()=>{
-    const res = await fetch('http://localhost:3001/services/api/get-all')
+    const res = await fetch('http://localhost:3000/services/api/get-all')
     const data = res.json()
     return data
 } 

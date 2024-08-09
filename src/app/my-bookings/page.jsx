@@ -7,7 +7,7 @@ const page = () => {
   const [myBookings, setMyBookings] = useState([]);
   const getData = async () => {
     const res = await fetch(
-      `http://localhost:3001/my-bookings/api/${session?.data?.user?.email}`
+      `http://localhost:3000/my-bookings/api/${session?.data?.user?.email}`
     );
     const data = await res.json();
     setMyBookings(data);
@@ -19,7 +19,7 @@ const page = () => {
   const handleDelete = async (id) => {
     console.log(id)
     const res = await fetch(
-      `http://localhost:3001/my-bookings/api/delete-booking/${id}`,{
+      `http://localhost:3000/my-bookings/api/delete-booking/${id}`,{
         method: "DELETE"
       }
     );

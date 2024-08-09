@@ -17,7 +17,7 @@ const page = () => {
       password,
     };
     //console.log(userData);
-    const resp = await fetch("http://localhost:3001/signup/api", {
+    const resp = await fetch("http://localhost:3000/signup/api", {
       method: "POST",
       body: JSON.stringify(userData),
       headers: {

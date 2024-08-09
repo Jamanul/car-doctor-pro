@@ -11,7 +11,7 @@ const page = ({ params }) => {
   const session = useSession();
   const [singleData, setSingleData] = useState([]);
   const getDetails = async () => {
-    const res = await fetch(`http://localhost:3001/services/api/${params.id}`);
+    const res = await fetch(`http://localhost:3000/services/api/${params.id}`);
     const data = await res.json();
     setSingleData(data);
   };
@@ -38,7 +38,7 @@ const page = ({ params }) => {
     };
     console.log(checkoutData)
     try {
-        const res = await fetch('http://localhost:3001/checkout/api/checkout',{
+        const res = await fetch('http://localhost:3000/checkout/api/checkout',{
         method: "POST",
         headers:{
             "content-type":"application/json"

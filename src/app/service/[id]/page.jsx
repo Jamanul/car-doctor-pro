@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 
 const serviceDetails = async(id)=>{
-    const res = await fetch(`http://localhost:3001/services/api/${id}`)
+    const res = await fetch(`http://localhost:3000/services/api/${id}`)
     const data = res.json()
     return data
 }
