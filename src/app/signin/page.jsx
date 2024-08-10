@@ -3,20 +3,25 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { signIn } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
 
 const page = () => {
+  const searchParams =useSearchParams()
+  const path = searchParams.get('redirect')
   const handleLogin = async (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log( email, password );
+    //console.log( email, password );
+    console.log(path)
     const resp = await signIn("credentials", {
       email,
       password,
-      redirect: false,
+      redirect: true,
+      callbackUrl : path ? path : '/'
     });
-    console.log(resp);
+    //console.log(resp);
   };
   return (
     <div className="flex min-h-screen items-center justify-center gap-6">
